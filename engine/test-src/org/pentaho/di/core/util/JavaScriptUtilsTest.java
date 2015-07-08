@@ -35,6 +35,7 @@ import org.pentaho.di.core.row.ValueMetaInterface;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Locale;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -59,6 +60,7 @@ public class JavaScriptUtilsTest {
   public static void setUp() throws Exception {
     ctx = Context.enter();
     scope = ctx.initStandardObjects();
+    Locale.setDefault( Locale.US );
   }
 
   @AfterClass

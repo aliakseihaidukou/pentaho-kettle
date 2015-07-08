@@ -26,6 +26,7 @@ import java.math.BigDecimal;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.exception.KettleValueException;
@@ -38,6 +39,11 @@ import junit.framework.TestCase;
  * @author Sven Boden
  */
 public class ValueTest extends TestCase {
+  @Override protected void setUp() throws Exception {
+    super.setUp();
+    Locale.setDefault( Locale.US );
+  }
+
   /**
    * Constructor test 1.
    */
