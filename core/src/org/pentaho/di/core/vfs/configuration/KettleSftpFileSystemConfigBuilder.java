@@ -31,6 +31,7 @@ import org.apache.commons.vfs2.provider.FileNameParser;
 import org.apache.commons.vfs2.provider.URLFileName;
 import org.apache.commons.vfs2.provider.sftp.SftpFileNameParser;
 import org.apache.commons.vfs2.provider.sftp.SftpFileSystem;
+import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
 import org.pentaho.di.core.logging.LogChannel;
 import org.pentaho.di.core.logging.LogChannelInterface;
 
@@ -113,6 +114,8 @@ public class KettleSftpFileSystemConfigBuilder extends KettleGenericFileSystemCo
               identities[identities.length - 1] = new File( value );
             }
             setParam( opts, "identities", identities );
+          } else if ( name.equals( "UserDirIsRoot" ) ) {
+            SftpFileSystemConfigBuilder.getInstance().setUserDirIsRoot( opts, Boolean.valueOf( value ) );
           } else {
             setParam( opts, name, value );
           }
